@@ -1,0 +1,2251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramadhan Charity Run 2026 | Charity, Fitness & Fun</title>
+    <link rel="icon" type="image/png" href="run-logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #1D4FA2;
+            --secondary: #0D3A7A;
+            --yellow: #F9CA25;
+            --light: #E8F0FF;
+            --white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #1A1A1A;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #mainContent {
+            flex: 1 0 auto;
+        }
+        
+        nav {
+            background: rgba(29, 79, 162, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(29, 79, 162, 0.3);
+            animation: slideDown 0.8s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        
+        .logo span {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .logo:hover { transform: scale(1.05); }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--yellow);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--yellow); }
+        
+        .menu-toggle {
+            display: none;
+            background: rgba(249, 202, 37, 0.2);
+            border: 2px solid var(--yellow);
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .menu-toggle:hover {
+            background: var(--yellow);
+            color: var(--primary);
+        }
+        
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1D4FA2 0%, #0D3A7A 50%, #2B5CB8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(50px, 50px) rotate(360deg); }
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(249, 202, 37, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(29, 79, 162, 0.3) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+        
+        .hero-content {
+            text-align: center;
+            color: white;
+            max-width: 1100px;
+            z-index: 1;
+        }
+        
+        .hero-logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 2rem;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+        }
+        
+        .hero-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .hero-title {
+            font-size: 4.5rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 5px 30px rgba(0,0,0,0.5);
+            letter-spacing: 3px;
+            animation: fadeInScale 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+            line-height: 1.1;
+        }
+        
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.8) translateY(30px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        
+        .hero-edition {
+            font-size: 1.2rem;
+            color: var(--yellow);
+            margin-bottom: 2rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            animation: fadeInUp 1.2s ease-out 0.4s backwards;
+        }
+        
+        .hero-slogan {
+            font-size: 1.5rem;
+            margin-bottom: 3.5rem;
+            font-style: italic;
+            font-weight: 300;
+            animation: fadeInUp 1.2s ease-out 0.7s backwards;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1.2s ease-out 1s backwards;
+        }
+        
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            min-width: 100px;
+            border: 2px solid rgba(249, 202, 37, 0.3);
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .countdown-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--yellow);
+            box-shadow: 0 12px 35px rgba(249, 202, 37, 0.4);
+        }
+        
+        .countdown-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--yellow);
+            text-shadow: 0 3px 15px rgba(0,0,0,0.4);
+            line-height: 1;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button {
+            padding: 1.3rem 3.5rem;
+            background: linear-gradient(135deg, var(--yellow), #F0B800);
+            color: #1A1A1A;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+            box-shadow: 0 10px 30px rgba(249, 202, 37, 0.4);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1.2s ease-out 1.3s backwards;
+            z-index: 1;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            transition: left 0.5s;
+            z-index: -1;
+        }
+        
+        .cta-button:hover::before { left: 100%; }
+        
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(249, 202, 37, 0.6);
+        }
+        
+        .cta-button:active {
+            transform: translateY(-3px) scale(1.03);
+        }
+        
+        .gallery-showcase {
+            padding: 6rem 0;
+            background: linear-gradient(180deg, var(--light) 0%, white 100%);
+            width: 100%;
+        }
+        
+        .gallery-showcase > * {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        
+        .gallery-showcase h2 {
+            text-align: center;
+            font-size: 3rem;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+        
+        .gallery-showcase-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(29, 79, 162, 0.15);
+            transition: all 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+            animation: fadeInGallery 1s ease-out backwards;
+        }
+        
+        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+        
+        @keyframes fadeInGallery {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 60px rgba(29, 79, 162, 0.25);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .gallery-item:hover img { transform: scale(1.15); }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(29, 79, 162, 0.95) 0%, transparent 100%);
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay { transform: translateY(0); }
+        
+        .gallery-overlay h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery-overlay p { color: var(--yellow); }
+        
+        .view-full-gallery {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .view-gallery-btn {
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .view-gallery-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .view-gallery-btn:hover::before {
+            left: 100%;
+        }
+        
+        .view-gallery-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(29, 79, 162, 0.4);
+        }
+        
+        .view-gallery-btn:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+        
+        section {
+            padding: 6rem 0;
+            width: 100%;
+        }
+        
+        section > * {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        
+        .content-section { display: none; }
+        
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            position: relative;
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--yellow), var(--primary));
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+            margin-top: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+        
+        .testimonials-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .testimonials-section > * {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonials-section h2 {
+            text-align: center;
+            font-size: 3rem;
+            color: white;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+        
+        .testimonials-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--yellow);
+            margin-bottom: 4rem;
+            font-style: italic;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+        
+        .testimonials-slider-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .testimonials-slider {
+            overflow: hidden;
+            border-radius: 20px;
+        }
+        
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .testimonial-card {
+            min-width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+            position: relative;
+            border: 2px solid rgba(249, 202, 37, 0.2);
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            font-size: 120px;
+            font-family: 'Playfair Display', serif;
+            color: var(--yellow);
+            opacity: 0.3;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-stars {
+            color: var(--yellow);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 0.3rem;
+        }
+        
+        .testimonial-text {
+            color: #333;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--light);
+        }
+        
+        .author-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 3px solid var(--yellow);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+        
+        .author-info p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .testimonial-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--yellow), #F0B800);
+            color: #1A1A1A;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            box-shadow: 0 3px 10px rgba(249, 202, 37, 0.4);
+        }
+        
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.95);
+            border: 2px solid var(--yellow);
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .slider-nav:hover {
+            background: var(--yellow);
+            color: white;
+            transform: translateY(-50%) scale(1.15);
+        }
+        
+        .slider-nav.prev { left: -70px; }
+        .slider-nav.next { right: -70px; }
+        
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .dot.active {
+            background: var(--yellow);
+            width: 30px;
+            border-radius: 6px;
+        }
+        
+        .kit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+        
+        .kit-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(29, 79, 162, 0.1);
+            border: 2px solid var(--light);
+            transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+        
+        .kit-card:nth-child(1) { animation-delay: 0.1s; }
+        .kit-card:nth-child(2) { animation-delay: 0.2s; }
+        .kit-card:nth-child(3) { animation-delay: 0.3s; }
+        .kit-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        .kit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--yellow));
+            transform: scaleX(0);
+            transition: transform 0.5s;
+        }
+        
+        .kit-card:hover::before { transform: scaleX(1); }
+        
+        .kit-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(29, 79, 162, 0.2);
+            border-color: var(--yellow);
+        }
+        
+        .kit-card h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .kit-price {
+            font-size: 2.5rem;
+            color: var(--yellow);
+            font-weight: 800;
+            margin: 1.5rem 0;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .kit-description {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .purchase-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .purchase-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(249, 202, 37, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
+        }
+        
+        .purchase-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .purchase-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(29, 79, 162, 0.3);
+        }
+        
+        .purchase-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+        
+        .payment-options {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+        
+        .payment-card {
+            background: linear-gradient(135deg, var(--light) 0%, white 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary);
+            box-shadow: 0 5px 20px rgba(29, 79, 162, 0.1);
+            transition: all 0.3s;
+            animation: fadeInLeft 0.8s ease-out backwards;
+        }
+        
+        .payment-card:nth-child(1) { animation-delay: 0.1s; }
+        .payment-card:nth-child(2) { animation-delay: 0.2s; }
+        
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .payment-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(29, 79, 162, 0.2);
+            border-left-color: var(--yellow);
+        }
+        
+        .payment-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        
+        .payment-info {
+            color: #1A1A1A;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        
+        .payment-info strong { color: var(--primary); }
+        
+        .whatsapp-notice {
+            text-align: center;
+            margin-top: 2.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+            border-radius: 15px;
+            border-left: 5px solid #25D366;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
+        }
+        
+        .whatsapp-notice p {
+            font-size: 1.1rem;
+            color: #2E7D32;
+            font-weight: 600;
+        }
+        
+        .whatsapp-notice a {
+            color: #25D366;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+        
+        .volunteer-section {
+    background: linear-gradient(180deg, white 0%, var(--light) 100%);
+}
+
+.volunteer-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    animation: fadeInUp 0.8s ease-out 0.3s backwards;
+}
+
+.volunteer-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.volunteer-card {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border-radius: 25px;
+    padding: 3rem;
+    box-shadow: 0 15px 50px rgba(29, 79, 162, 0.25);
+    transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out backwards;
+}
+
+.volunteer-card:nth-child(1) { animation-delay: 0.1s; }
+.volunteer-card:nth-child(2) { animation-delay: 0.2s; }
+
+.volunteer-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(249, 202, 37, 0.1) 0%, transparent 70%);
+    transition: transform 0.8s;
+
+    /* ✅ FIX ADDED */
+    pointer-events: none;
+}
+
+.volunteer-card:hover::before {
+    transform: rotate(180deg);
+}
+
+.volunteer-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 70px rgba(29, 79, 162, 0.35);
+}
+
+.volunteer-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--yellow);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin: 0 auto 2rem;
+    box-shadow: 0 10px 30px rgba(249, 202, 37, 0.4);
+}
+
+.volunteer-card h3 {
+    font-size: 2rem;
+    color: var(--yellow);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.volunteer-card p {
+    color: rgba(255,255,255,0.9);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+    text-align: center;
+}
+
+.volunteer-benefits {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.volunteer-benefits li {
+    padding: 0.8rem 0;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.volunteer-benefits li::before {
+    content: '✓';
+    color: var(--yellow);
+    font-weight: 900;
+    font-size: 1.3rem;
+}
+
+.apply-btn {
+    width: 100%;
+    padding: 1.2rem;
+    background: var(--yellow);
+    color: var(--primary);
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 5px 20px rgba(249, 202, 37, 0.4);
+
+    /* ✅ EXTRA SAFETY */
+    position: relative;
+    z-index: 10;
+}
+
+.apply-btn:hover {
+    background: white;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(249, 202, 37, 0.6);
+}
+
+        
+        .partners-section {
+            padding: 6rem 0;
+            background: linear-gradient(180deg, var(--light) 0%, white 100%);
+        }
+        
+        .partners-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
+        }
+        
+        .partners-marquee {
+            overflow: hidden;
+            background: white;
+            padding: 3rem 0;
+            margin: 3rem 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(29, 79, 162, 0.1);
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+        
+        .marquee-track {
+            display: flex;
+            animation: marquee 40s linear infinite;
+            gap: 4rem;
+            width: fit-content;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+        
+        .partner-logo-item {
+            flex-shrink: 0;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(29, 79, 162, 0.2);
+        }
+        
+        .partner-logo-item:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(29, 79, 162, 0.3);
+        }
+        
+        .partner-logo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: white;
+            padding: 1rem;
+            border-radius: 15px;
+            border: 3px solid var(--yellow);
+        }
+        
+        .become-partner-container {
+            display: flex;
+            justify-content: center;
+            padding: 0 20px;
+            margin-top: 5rem;
+        }
+        
+        .become-partner-card {
+            background: linear-gradient(135deg, var(--yellow), #f0b800);
+            color: #1a1a1a;
+            max-width: 600px;
+            width: 100%;
+            padding: 4rem 3rem;
+            border-radius: 28px;
+            box-shadow: 0 25px 60px rgba(249, 202, 37, 0.35);
+            text-align: center;
+            transition: all 0.4s;
+            animation: fadeInUp 0.8s ease-out 0.5s backwards;
+        }
+        
+        .become-partner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 35px 70px rgba(249, 202, 37, 0.45);
+        }
+        
+        .become-partner-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .become-partner-card p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+        
+        .partner-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s;
+            box-shadow: 0 10px 25px rgba(29, 79, 162, 0.4);
+        }
+        
+        .partner-btn:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(29, 79, 162, 0.5);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+        
+        .about-card {
+            background: linear-gradient(135deg, var(--light) 0%, white 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(29, 79, 162, 0.1);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+        
+        .about-card:nth-child(1) { animation-delay: 0.1s; }
+        .about-card:nth-child(2) { animation-delay: 0.2s; }
+        .about-card:nth-child(3) { animation-delay: 0.3s; }
+        
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(249, 202, 37, 0.1) 0%, transparent 70%);
+            transition: transform 0.8s;
+        }
+        
+        .about-card:hover::before { transform: rotate(180deg); }
+        
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(29, 79, 162, 0.2);
+        }
+        
+        .about-card h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-card p {
+            line-height: 1.8;
+            color: #555;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .full-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .full-gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(29, 79, 162, 0.12);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInGallery 0.6s ease-out backwards;
+        }
+        
+        .full-gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .full-gallery-item:nth-child(2) { animation-delay: 0.2s; }
+        .full-gallery-item:nth-child(3) { animation-delay: 0.3s; }
+        .full-gallery-item:nth-child(4) { animation-delay: 0.4s; }
+        .full-gallery-item:nth-child(5) { animation-delay: 0.5s; }
+        .full-gallery-item:nth-child(6) { animation-delay: 0.6s; }
+        
+        .full-gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px rgba(29, 79, 162, 0.25);
+        }
+        
+        .full-gallery-item img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .full-gallery-item:hover img { transform: scale(1.1); }
+        
+        .full-gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(29, 79, 162, 0.9) 0%, rgba(29, 79, 162, 0.7) 50%, transparent 100%);
+            padding: 1.5rem;
+        }
+        
+        .full-gallery-overlay h3 {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .full-gallery-overlay p {
+            color: var(--yellow);
+            font-size: 0.9rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+        
+        .contact-item {
+            background: linear-gradient(135deg, var(--light) 0%, white 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            box-shadow: 0 5px 20px rgba(29, 79, 162, 0.1);
+            transition: all 0.3s;
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+        
+        .contact-item:nth-child(1) { animation-delay: 0.1s; }
+        .contact-item:nth-child(2) { animation-delay: 0.2s; }
+        .contact-item:nth-child(3) { animation-delay: 0.3s; }
+        .contact-item:nth-child(4) { animation-delay: 0.4s; }
+        
+        .contact-item:hover {
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(29, 79, 162, 0.2);
+        }
+        
+        .contact-icon {
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(29, 79, 162, 0.3);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-10px); }
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.15);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+            animation: none;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            flex-shrink: 0;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-organizers {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .footer-organizers p {
+            font-size: 1rem;
+            margin: 0.5rem 0;
+            font-weight: 300;
+        }
+        
+        .footer-organizers strong {
+            color: var(--yellow);
+            font-weight: 600;
+        }
+        
+        .footer-bottom {
+            padding-top: 1.5rem;
+        }
+        
+        .footer-bottom p {
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            margin: 0.3rem 0;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal.show {
+            display: flex;
+            animation: fadeInModal 0.3s;
+        }
+        
+        @keyframes fadeInModal {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 25px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: slideUpModal 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        
+        @keyframes slideUpModal {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--secondary);
+            transition: all 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--light);
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(29, 79, 162, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(29, 79, 162, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle { 
+                display: flex;
+            }
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 75%;
+                max-width: 320px;
+                height: calc(100vh - 70px);
+                background: rgba(29, 79, 162, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
+                transition: right 0.4s ease-in-out;
+                z-index: 999;
+            }
+            .nav-links.active { right: 0; }
+            .hero-title { font-size: 2.2rem; letter-spacing: 1px; }
+            .hero-logo { width: 100px; height: 100px; margin-bottom: 1.5rem; }
+            .hero-slogan { font-size: 1.1rem; padding: 0 1rem; }
+            .countdown-item { padding: 1rem 1.5rem; min-width: 75px; }
+            .countdown-number { font-size: 1.8rem; }
+            .countdown-label { font-size: 0.75rem; }
+            .gallery-item img, .full-gallery-item img { height: 250px; }
+            .section-title { font-size: 2rem; }
+            .section-subtitle { font-size: 1rem; }
+            .slider-nav { 
+                width: 45px;
+                height: 45px;
+                font-size: 1.5rem;
+            }
+            .slider-nav.prev { left: 5px; }
+            .slider-nav.next { right: 5px; }
+            .testimonial-card { padding: 2rem 1.5rem; }
+            .testimonial-card::before { font-size: 80px; top: -10px; left: 15px; }
+            .author-avatar { width: 55px; height: 55px; }
+            .testimonial-badge { font-size: 0.7rem; padding: 0.4rem 0.8rem; }
+            .volunteer-options { grid-template-columns: 1fr; gap: 2rem; }
+            .kit-grid { grid-template-columns: 1fr; }
+            .partners-marquee { 
+                width: 100vw;
+                margin-left: calc(-50vw + 50%);
+                border-radius: 0;
+            }
+            .marquee-track { 
+                animation-duration: 25s;
+                gap: 2.5rem;
+            }
+            .partner-logo-item {
+                width: 150px;
+                height: 150px;
+            }
+            .become-partner-card {
+                padding: 3rem 2rem;
+            }
+            .become-partner-card h3 { font-size: 1.8rem; }
+            .cta-button {
+                padding: 1.1rem 2.5rem;
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title { font-size: 1.8rem; }
+            .hero-edition { font-size: 1rem; }
+            .countdown { gap: 1rem; }
+            .countdown-item { padding: 0.8rem 1rem; min-width: 65px; }
+            .countdown-number { font-size: 1.5rem; }
+            .nav-links { width: 85%; }
+            .testimonial-text { font-size: 0.95rem; }
+            .slider-nav.prev { left: 2px; }
+            .slider-nav.next { right: 2px; }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .slider-nav.prev { left: -30px; }
+            .slider-nav.next { right: -30px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="mainContent">
+    <nav>
+        <div class="nav-container">
+            <a class="logo" onclick="showHome()">
+                <img src="run-logo.png" alt="RCR Logo">
+                <span>RCR</span>
+            </a>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a onclick="showHome()">Home</a></li>
+                <li><a onclick="showSection('kits')">Purchase Kit</a></li>
+                <li><a onclick="showSection('donate')">Donate</a></li>
+                <li><a onclick="showSection('about')">About</a></li>
+                <li><a onclick="showSection('volunteer')">Volunteer</a></li>
+                <li><a onclick="showSection('partners')">Partners</a></li>
+                <li><a onclick="showSection('contact')">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="run-logo.png" alt="Ramadhan Charity Run Logo">
+            </div>
+            <h1 class="hero-title">RAMADHAN<br>CHARITY RUN</h1>
+            <p class="hero-edition">3RD EDITION • 2026</p>
+            <p class="hero-slogan">Charity, Fitness & Fun — A Happy Ramadhan for All</p>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">0</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">0</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">0</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">0</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+            <button class="cta-button" onclick="showSection('kits')">PURCHASE KIT</button>
+        </div>
+    </section>
+
+    <section id="kits" class="content-section">
+        <h2 class="section-title">Purchase Your Kit</h2>
+        <p class="section-subtitle">Choose your kit and be part of this amazing journey</p>
+        <div class="kit-grid">
+            <div class="kit-card">
+                <h3>👶 Kids Kit</h3>
+                <div class="kit-price">UGX 19,000</div>
+                <p class="kit-description">Includes: T-shirt, Medal</p>
+                <button class="purchase-btn" onclick="openPaymentModal('Kids Kit - UGX 19,000')">Purchase Now</button>
+            </div>
+            <div class="kit-card">
+                <h3>🥈 Silver Kit</h3>
+                <div class="kit-price">UGX 29,000</div>
+                <p class="kit-description">Includes: Vest, Medal</p>
+                <button class="purchase-btn" onclick="openPaymentModal('Silver Kit - UGX 29,000')">Purchase Now</button>
+            </div>
+            <div class="kit-card">
+                <h3>🥇 Gold Kit</h3>
+                <div class="kit-price">UGX 49,000</div>
+                <p class="kit-description">Includes: Vest, Medal, Bottle, Cap, Bag</p>
+                <button class="purchase-btn" onclick="openPaymentModal('Gold Kit - UGX 49,000')">Purchase Now</button>
+            </div>
+            <div class="kit-card">
+                <h3>💎 Platinum Kit</h3>
+                <div class="kit-price">UGX 89,000</div>
+                <p class="kit-description">Includes: T-shirt, Medal, Bottle, Cap, Bag, Certificate</p>
+                <button class="purchase-btn" onclick="openPaymentModal('Platinum Kit - UGX 89,000')">Purchase Now</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="donate" class="content-section">
+        <h2 class="section-title">Make a Donation</h2>
+        <p class="section-subtitle">Your generosity helps us feed 1,000 families this Ramadhan</p>
+        <div class="payment-options">
+            <div class="payment-card">
+                <h3>📱 MTN Mobile Money</h3>
+                <p class="payment-info">Number: <strong>0762301744</strong></p>
+                <p class="payment-info">Name: <strong>Uthman Matovu</strong></p>
+            </div>
+            <div class="payment-card">
+                <h3>📱 Airtel Money</h3>
+                <p class="payment-info">Number: <strong>0709113129</strong></p>
+                <p class="payment-info">Name: <strong>Uthman Matovu</strong></p>
+            </div>
+        </div>
+        <div class="whatsapp-notice">
+            <p>After payment, share proof via <a href="https://wa.me/256762301744?text=Asalaam%20alykum.%20I%20have%20made%20a%20donation" target="_blank">WhatsApp: 0762301744</a></p>
+        </div>
+    </section>
+
+    <section id="about" class="content-section">
+        <h2 class="section-title">About the Event</h2>
+        <p class="section-subtitle">Charity, Fitness & Fun — A Happy Ramadhan for All</p>
+        <div class="about-content">
+            <div class="about-card">
+                <h3>🎯 Vision</h3>
+                <p>To create a sustainable community initiative that combines fitness, charity, and spiritual fulfillment during the blessed month of Ramadhan.</p>
+            </div>
+            <div class="about-card">
+                <h3>💝 Mission</h3>
+                <p>To bring together communities in support of those in need while promoting health, wellness, and the spirit of giving during Ramadhan.</p>
+            </div>
+            <div class="about-card">
+                <h3>🎯 Impact</h3>
+                <p>Our goal is to feed 1,000 families this Ramadhan. Through your participation and donations, we can make a Happy Ramadhan for All!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="volunteer" class="content-section volunteer-section">
+        <h2 class="section-title">Join Our Volunteer Team</h2>
+        <p class="section-subtitle">Be part of something meaningful this Ramadhan</p>
+        <div class="volunteer-intro">
+            <p>Join us in making a difference! Whether you want to volunteer at the event or partner with us for the long term, we welcome passionate individuals and organizations committed to community service.</p>
+        </div>
+        
+        <div class="volunteer-options">
+            <div class="volunteer-card">
+                <div class="volunteer-icon">🤝</div>
+                <h3>Event Volunteer</h3>
+                <p>Help us make the charity run a success! We need dedicated volunteers for various roles during the event.</p>
+                <ul class="volunteer-benefits">
+                    <li>Official volunteer t-shirt</li>
+                    <li>Certificate of participation</li>
+                    <li>Refreshments & meals</li>
+                    <li>Community service hours</li>
+                    <li>Networking opportunities</li>
+                </ul>
+                <a href="https://wa.me/256762301744?text=Asalaam%20alykum!%20I%20want%20to%20volunteer%20for%20the%20Ramadhan%20Charity%20Run.%20My%20name%20is%3A%20" 
+                   target="_blank" 
+                   class="apply-btn" 
+                   style="display: block; text-align: center; text-decoration: none;">
+                    Apply to Volunteer
+                </a>
+            </div>
+            
+            <div class="volunteer-card">
+                <div class="volunteer-icon">🤲</div>
+                <h3>Long-term Partnership</h3>
+                <p>Partner with us beyond the event! Join our mission to support communities throughout the year.</p>
+                <ul class="volunteer-benefits">
+                    <li>Brand visibility</li>
+                    <li>CSR opportunities</li>
+                    <li>Tax deduction benefits</li>
+                    <li>Impact reports</li>
+                    <li>Collaborative projects</li>
+                </ul>
+                <a href="https://wa.me/256762301744?text=Asalaam%20alykum!%20I%27m%20interested%20in%20partnering%20with%20Ramadhan%20Charity%20Run.%20Organization%3A%20" 
+                   target="_blank" 
+                   class="apply-btn" 
+                   style="display: block; text-align: center; text-decoration: none;">
+                    Partner With Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="partners" class="content-section partners-section">
+        <h2 class="section-title">Our Amazing Partners</h2>
+        <p class="section-subtitle">Together, we make a greater impact</p>
+        <div class="partners-intro">
+            <p>We are grateful to our partners who share our vision of creating positive change in our community. Together, we achieve more!</p>
+        </div>
+        
+        <div class="partners-marquee">
+            <div class="marquee-track" id="marqueeTrack">
+                <div class="partner-logo-item">
+                    <img src="run-logo.png" alt="Dusman's Daawa">
+                </div>
+                <div class="partner-logo-item">
+                    <img src="amyu-logo.png" alt="AMYU">
+                </div>
+                <div class="partner-logo-item">
+                    <img src="Taniim.png" alt="Taniim Hijja and Umrah">
+                </div>
+                <div class="partner-logo-item">
+                    <img src="run-logo.png" alt="Community Outreach">
+                </div>
+                <div class="partner-logo-item">
+                    <img src="amyu-logo.png" alt="Health Hub">
+                </div>
+                <div class="partner-logo-item">
+                    <img src="run-logo.png" alt="Sports Federation">
+                </div>
+                <div class="partner-logo-item">
+                    <img src="amyu-logo.png" alt="Media Partners">
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="partner-logo-item">
+                    <img src="run-logo.png" alt="Dusman's Daawa">
+                </div>
+                <div class="partner-logo-item">
+                    <img src="amyu-logo.png" alt="AMYU">
+                </div>
+                <div class="partner-logo-item">
+                    <img src="Taniim.png" alt="Taniim Hijja and Umrah">
+                </div>
+                <div class="partner-logo-item">
+                    <img src="run-logo.png" alt="Community Outreach">
+                </div>
+                <div class="partner-logo-item">
+                    <img src="amyu-logo.png" alt="Health Hub">
+                </div>
+                <div class="partner-logo-item">
+                    <img src="run-logo.png" alt="Sports Federation">
+                </div>
+                <div class="partner-logo-item">
+                    <img src="amyu-logo.png" alt="Media Partners">
+                </div>
+            </div>
+        </div>
+        
+        <div class="become-partner-container">
+            <div class="become-partner-card">
+                <h3>Become a Partner</h3>
+                <p>Join us in making a difference in our community.<br>Let's work together for a noble cause!</p>
+                <button class="partner-btn" onclick="openPartnerModal()">Partner With Us Today</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="content-section">
+        <h2 class="section-title">📸 Event Gallery</h2>
+        <p class="section-subtitle">Relive the beautiful moments from our charity runs</p>
+        <div class="full-gallery-grid">
+            <div class="full-gallery-item">
+                <img src="community-together.jpg" alt="Community">
+                <div class="full-gallery-overlay">
+                    <h3>Community Together</h3>
+                    <p>United for a cause</p>
+                </div>
+            </div>
+            <div class="full-gallery-item">
+                <img src="running-for-hope.jpg" alt="Running">
+                <div class="full-gallery-overlay">
+                    <h3>Running for Hope</h3>
+                    <p>Every step counts</p>
+                </div>
+            </div>
+            <div class="full-gallery-item">
+                <img src="giving-back.jpg" alt="Giving">
+                <div class="full-gallery-overlay">
+                    <h3>Giving Back</h3>
+                    <p>Feeding 1,000 families</p>
+                </div>
+            </div>
+            <div class="full-gallery-item">
+                <img src="joy-and-fitness.jpg" alt="Joy">
+                <div class="full-gallery-overlay">
+                    <h3>Joy & Fitness</h3>
+                    <p>Healthy bodies, happy hearts</p>
+                </div>
+            </div>
+            <div class="full-gallery-item">
+                <img src="ramadhan-spirit.jpg" alt="Spirit">
+                <div class="full-gallery-overlay">
+                    <h3>Ramadhan Spirit</h3>
+                    <p>Blessed month, blessed deeds</p>
+                </div>
+            </div>
+            <div class="full-gallery-item">
+                <img src="volunteers-in-action.jpg" alt="Volunteers">
+                <div class="full-gallery-overlay">
+                    <h3>Volunteers in Action</h3>
+                    <p>Making dreams come true</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="content-section">
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-subtitle">We're here to help. Reach out anytime!</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span class="contact-icon">📱</span>
+                <div>
+                    <strong style="font-size: 1.2rem; color: var(--primary);">WhatsApp / Call</strong>
+                    <p>+256 762 301 744</p>
+                    <p>+256 709 113 129</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">📧</span>
+                <div>
+                    <strong style="font-size: 1.2rem; color: var(--primary);">Email</strong>
+                    <p>info@ramadhancharityrun.org</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">📍</span>
+                <div>
+                    <strong style="font-size: 1.2rem; color: var(--primary);">Event Venue</strong>
+                    <p>Kololo Independence Grounds, Kampala</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">🏢</span>
+                <div>
+                    <strong style="font-size: 1.2rem; color: var(--primary);">Office Location</strong>
+                    <p>Kampala, Uganda</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/256762301744?text=Asalaam%20alykum" class="whatsapp-float" target="_blank">💬</a>
+
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closePaymentModal()">&times;</button>
+            <h2 style="color: var(--primary); margin-bottom: 1rem; font-family: 'Playfair Display', serif; font-size: 2rem;">Payment Options</h2>
+            <p id="kitInfo" style="margin-bottom: 2rem; font-weight: 600; font-size: 1.1rem; color: var(--yellow);"></p>
+            <div class="payment-options">
+                <div class="payment-card">
+                    <h3>📱 MTN Mobile Money</h3>
+                    <p class="payment-info">Number: <strong>0762301744</strong></p>
+                    <p class="payment-info">Name: <strong>Uthman Matovu</strong></p>
+                </div>
+                <div class="payment-card">
+                    <h3>📱 Airtel Money</h3>
+                    <p class="payment-info">Number: <strong>0709113129</strong></p>
+                    <p class="payment-info">Name: <strong>Uthman Matovu</strong></p>
+                </div>
+            </div>
+            <div class="whatsapp-notice">
+                <p>After payment, share proof via <a href="https://wa.me/256762301744?text=Asalaam%20alykum.%20I%20have%20purchased%20a%20kit" target="_blank">WhatsApp: 0762301744</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="volunteerModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeVolunteerModal()">&times;</button>
+            <h2 style="color: var(--primary); margin-bottom: 1rem; font-family: 'Playfair Display', serif; font-size: 2rem;">Volunteer Application</h2>
+            <p style="margin-bottom: 2rem; color: #666;">Thank you for your interest! Please share your details via WhatsApp.</p>
+            <div style="text-align: center; padding: 2rem;">
+                <a href="https://wa.me/256762301744?text=Hello!%20I%20want%20to%20volunteer%20for%20the%20Ramadhan%20Charity%20Run.%20My%20name%20is%20" 
+                   target="_blank" 
+                   style="display: inline-block; padding: 1.2rem 2.5rem; background: linear-gradient(135deg, #25D366, #128C7E); color: white; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem;">
+                    📱 Continue on WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="partnerModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closePartnerModal()">&times;</button>
+            <h2 style="color: var(--primary); margin-bottom: 1rem; font-family: 'Playfair Display', serif; font-size: 2rem;">Partnership Application</h2>
+            <p style="margin-bottom: 2rem; color: #666;">We're excited to explore partnership opportunities! Contact us via WhatsApp.</p>
+            <div style="text-align: center; padding: 2rem;">
+                <a href="https://wa.me/256762301744?text=Hello!%20I%27m%20interested%20in%20partnering%20with%20Ramadhan%20Charity%20Run.%20Organization:%20" 
+                   target="_blank" 
+                   style="display: inline-block; padding: 1.2rem 2.5rem; background: linear-gradient(135deg, #25D366, #128C7E); color: white; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem;">
+                    📱 Continue on WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/256762301744?text=Asalaam%20alykum" class="whatsapp-float" target="_blank">💬</a>
+
+   
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 3;
+        let autoSlideInterval;
+
+        function updateCountdown() {
+            const eventDate = new Date('February 8, 2026 00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<p style="font-size: 2rem; color: var(--yellow);">Event is Live!</p>';
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        function updateSlider() {
+            const track = document.getElementById('testimonialsTrack');
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextTestimonial() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+            resetAutoSlide();
+        }
+
+        function prevTestimonial() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+            resetAutoSlide();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+            resetAutoSlide();
+        }
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                nextTestimonial();
+            }, 5000);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        function showHome() {
+            document.getElementById('home').style.display = 'flex';
+            document.getElementById('home-gallery').style.display = 'block';
+            document.querySelector('.testimonials-section').style.display = 'block';
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            closeMenu();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showSection(sectionId) {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('home-gallery').style.display = 'none';
+            document.querySelector('.testimonials-section').style.display = 'none';
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+            closeMenu();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        function closeMenu() {
+            document.getElementById('navLinks').classList.remove('active');
+        }
+
+        function openPaymentModal(kitInfo) {
+            document.getElementById('kitInfo').textContent = kitInfo;
+            document.getElementById('paymentModal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openVolunteerModal() {
+            document.getElementById('volunteerModal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVolunteerModal() {
+            document.getElementById('volunteerModal').classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openPartnerModal() {
+            document.getElementById('partnerModal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePartnerModal() {
+            document.getElementById('partnerModal').classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        window.addEventListener('click', function(event) {
+            const paymentModal = document.getElementById('paymentModal');
+            const volunteerModal = document.getElementById('volunteerModal');
+            const partnerModal = document.getElementById('partnerModal');
+            
+            if (event.target === paymentModal) closePaymentModal();
+            if (event.target === volunteerModal) closeVolunteerModal();
+            if (event.target === partnerModal) closePartnerModal();
+        });
+
+        window.addEventListener('DOMContentLoaded', function() {
+            showHome();
+            startAutoSlide();
+        });
+    </script>
+    </div>
+    
+       <section id="home-gallery" class="gallery-showcase">
+        <h2>Event Highlights</h2>
+        <p class="gallery-showcase-subtitle">Moments from our previous charity runs</p>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="running-for-hope.jpg" alt="Running">
+                <div class="gallery-overlay">
+                    <h3>Running for Hope</h3>
+                    <p>Every step counts</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="giving-back.jpg" alt="Giving">
+                <div class="gallery-overlay">
+                    <h3>Giving Back</h3>
+                    <p>Feeding 1,000 families</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="joy-and-fitness.jpg" alt="Joy">
+                <div class="gallery-overlay">
+                    <h3>Joy & Fitness</h3>
+                    <p>Healthy bodies, happy hearts</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="volunteers-in-action.jpg" alt="Volunteers">
+                <div class="gallery-overlay">
+                    <h3>Volunteers in Action</h3>
+                    <p>Making dreams come true</p>
+                </div>
+            </div>
+        </div>
+        <div class="view-full-gallery">
+            <button class="view-gallery-btn" onclick="showSection('gallery')">View Full Gallery</button>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <h2>What Our Participants Say</h2>
+        <p class="testimonials-subtitle">Inspiring stories from our charity run family</p>
+        
+        <div class="testimonials-slider-container">
+            <button class="slider-nav prev" onclick="prevTestimonial()">&#8249;</button>
+            <div class="testimonials-slider">
+                <div class="testimonials-track" id="testimonialsTrack">
+                    <div class="testimonial-card">
+                        <span class="testimonial-badge">Runner 2025</span>
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                            </div>
+                            <p class="testimonial-text">
+                                "This was more than just a run - it was a spiritual journey. Knowing that every step I took helped feed families during Ramadhan made it incredibly meaningful. The organization was flawless and the community spirit was amazing!"
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="usaama.jpg" alt="Advocate Usaama" class="avatar-img">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Advocate Usaama Ssebuufu</h4>
+                                    <p>Chief Runner</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <span class="testimonial-badge">Volunteer 2025</span>
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                            </div>
+                            <p class="testimonial-text">
+                                "Being a volunteer at the Ramadhan Charity Run was one of the most rewarding experiences. Seeing families come together for fitness and charity, and knowing we made a real difference - it's beautiful. Can't wait for the next edition!"
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="Herman.jpg" alt="CEO Herman Padel Centre" class="avatar-img">
+                                </div>
+                                <div class="author-info">
+                                    <h4>CEO Herman Padel Centre</h4>
+                                    <p>Event Volunteer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <span class="testimonial-badge">Family Runner</span>
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                            </div>
+                            <p class="testimonial-text">
+                                "I participated with my entire family, including my kids! The atmosphere was so welcoming and the cause is truly noble. My children learned the value of charity and fitness in the most fun way. Highly recommended!"
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="kasim.jpg" alt="Advocate Kasim Muwonge" class="avatar-img">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Advocate Kasim Muwonge</h4>
+                                    <p>Family Participant</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="slider-nav next" onclick="nextTestimonial()">&#8250;</button>
+            
+            <div class="slider-dots">
+                <span class="dot active" onclick="goToSlide(0)"></span>
+                <span class="dot" onclick="goToSlide(1)"></span>
+                <span class="dot" onclick="goToSlide(2)"></span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-organizers">
+                <p>Organized by <strong>Dusman's Daawa Initiative</strong></p>
+                <p>In Partnership with <strong>Allied Muslim Youth (AMYU)</strong></p>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; Ramadhan Charity Run. All rights reserved.</p>
+                <p>Charity, Fitness & Fun — A Happy Ramadhan for All 🕌</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+ 
