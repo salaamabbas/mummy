@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy 44th Birthday Mummy! 🎉</title>
+    <title>Happy Birthday Nusurah! 💝</title>
     <style>
         * {
             margin: 0;
@@ -12,36 +12,233 @@
             box-sizing: border-box;
         }
 
-
+```
     body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: 'Georgia', serif;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
+        overflow-x: hidden;
     }
 
     .container {
-        max-width: 700px;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .intro-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
-        background: white;
-        border-radius: 30px;
-        padding: 40px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        position: relative;
+        height: 100%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        transition: opacity 0.5s, visibility 0.5s;
     }
 
-    .intro-screen, .quiz-screen, .final-screen {
+    .intro-screen.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .intro-text {
+        color: white;
+        font-size: 2.5em;
         text-align: center;
-        animation: fadeIn 0.6s ease-out;
+        margin-bottom: 30px;
+        animation: fadeInScale 1s ease-in;
     }
 
-    @keyframes fadeIn {
+    .start-btn {
+        padding: 15px 40px;
+        font-size: 1.2em;
+        background: white;
+        color: #667eea;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+        font-weight: bold;
+    }
+
+    .start-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .main-content {
+        opacity: 0;
+        transition: opacity 1s;
+    }
+
+    .main-content.visible {
+        opacity: 1;
+    }
+
+    .header {
+        text-align: center;
+        color: white;
+        padding: 40px 20px;
+        animation: fadeInDown 1s ease-out;
+    }
+
+    .header h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+        text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+    }
+
+    .header p {
+        font-size: 1.3em;
+        font-style: italic;
+    }
+
+    .card {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        margin: 20px 0;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .message-card {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        color: #333;
+        line-height: 1.8;
+        font-size: 1.1em;
+    }
+
+    .memories-section {
+        text-align: center;
+    }
+
+    .memories-section h2 {
+        color: #667eea;
+        margin-bottom: 20px;
+        font-size: 2em;
+    }
+
+    .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .photo-item {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.3s;
+        aspect-ratio: 1;
+    }
+
+    .photo-item:hover {
+        transform: scale(1.05) rotate(2deg);
+    }
+
+    .photo-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .photo-placeholder {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #667eea;
+        font-size: 3em;
+    }
+
+    .funny-memory {
+        background: #fff3cd;
+        padding: 20px;
+        border-radius: 15px;
+        border-left: 5px solid #ffc107;
+        margin: 20px 0;
+        font-style: italic;
+    }
+
+    .funny-memory::before {
+        content: "😂 ";
+        font-size: 1.5em;
+    }
+
+    .interactive-section {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .wish-button {
+        display: inline-block;
+        margin: 10px;
+        padding: 15px 30px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1em;
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .wish-button:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    .floating-hearts {
+        position: fixed;
+        bottom: -50px;
+        font-size: 2em;
+        animation: floatUp 4s ease-in;
+        pointer-events: none;
+        z-index: 999;
+    }
+
+    .surprise-box {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        margin: 20px 0;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+
+    .surprise-box:hover {
+        transform: scale(1.02);
+    }
+
+    .hidden-message {
+        display: none;
+        animation: fadeIn 1s;
+    }
+
+    .countdown {
+        font-size: 1.5em;
+        color: #667eea;
+        text-align: center;
+        margin: 20px 0;
+        font-weight: bold;
+    }
+
+    @keyframes fadeInDown {
         from {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(-50px);
         }
         to {
             opacity: 1;
@@ -49,410 +246,251 @@
         }
     }
 
-    .hidden {
-        display: none;
-    }
-
-    h1 {
-        font-size: 2.5em;
-        color: #764ba2;
-        margin-bottom: 20px;
-        animation: bounce 2s ease-in-out infinite;
-    }
-
-    @keyframes bounce {
-        0%, 100% {
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
             transform: translateY(0);
         }
-        50% {
-            transform: translateY(-10px);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes fadeInScale {
+        from {
+            opacity: 0;
+            transform: scale(0.8);
         }
-    }
-
-    .balloon {
-        font-size: 3em;
-        display: inline-block;
-        margin: 0 10px;
-        animation: float 3s ease-in-out infinite;
-    }
-
-    @keyframes float {
-        0%, 100% {
-            transform: translateY(0) rotate(-5deg);
-        }
-        50% {
-            transform: translateY(-20px) rotate(5deg);
-        }
-    }
-
-    .intro-message {
-        font-size: 1.3em;
-        color: #333;
-        margin: 30px 0;
-        line-height: 1.8;
-    }
-
-    .start-btn, .option-btn, .next-btn {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border: none;
-        padding: 18px 40px;
-        font-size: 1.2em;
-        border-radius: 50px;
-        cursor: pointer;
-        margin-top: 30px;
-        transition: all 0.3s ease;
-        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-    }
-
-    .start-btn:hover, .next-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
-    }
-
-    .question-container {
-        margin: 30px 0;
-    }
-
-    .question {
-        font-size: 1.5em;
-        color: #333;
-        margin-bottom: 30px;
-        font-weight: 600;
-    }
-
-    .options {
-        display: grid;
-        gap: 15px;
-    }
-
-    .option-btn {
-        width: 100%;
-        padding: 20px;
-        margin: 0;
-        font-size: 1.1em;
-        background: white;
-        color: #667eea;
-        border: 3px solid #667eea;
-        transition: all 0.3s ease;
-    }
-
-    .option-btn:hover {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        transform: translateX(5px);
-    }
-
-    .option-btn.correct {
-        background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-        color: white;
-        border-color: #11998e;
-        animation: pulse 0.5s ease;
-    }
-
-    .option-btn.wrong {
-        background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
-        color: white;
-        border-color: #eb3349;
-        animation: shake 0.5s ease;
-    }
-
-    @keyframes pulse {
-        0%, 100% {
+        to {
+            opacity: 1;
             transform: scale(1);
         }
-        50% {
-            transform: scale(1.05);
+    }
+
+    @keyframes floatUp {
+        to {
+            bottom: 120%;
+            opacity: 0;
         }
     }
 
-    @keyframes shake {
-        0%, 100% {
-            transform: translateX(0);
+    .confetti {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background: #f0f;
+        position: fixed;
+        top: -10px;
+        animation: confettiFall 3s linear;
+        pointer-events: none;
+    }
+
+    @keyframes confettiFall {
+        to {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
         }
-        25% {
-            transform: translateX(-10px);
-        }
-        75% {
-            transform: translateX(10px);
-        }
     }
 
-    .feedback {
-        margin-top: 20px;
-        padding: 20px;
-        border-radius: 15px;
-        font-size: 1.2em;
-        font-weight: 600;
-        animation: fadeIn 0.5s ease;
-    }
-
-    .feedback.correct {
-        background: linear-gradient(135deg, #d4f1f4 0%, #b5ffb5 100%);
-        color: #11998e;
-    }
-
-    .feedback.wrong {
-        background: linear-gradient(135deg, #ffd3d3 0%, #ffb3b3 100%);
-        color: #eb3349;
-    }
-
-    .next-btn {
-        margin-top: 20px;
-    }
-
-    .progress {
+    .footer {
         text-align: center;
-        color: #764ba2;
-        font-size: 1.1em;
-        margin-bottom: 20px;
-        font-weight: 600;
-    }
-
-    .final-message {
-        font-size: 1.4em;
-        color: #333;
-        line-height: 1.8;
-        margin: 30px 0;
-    }
-
-    .special-reveal {
-        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-        padding: 30px;
-        border-radius: 20px;
-        margin: 30px 0;
-        font-size: 1.5em;
-        font-weight: 600;
-        color: #764ba2;
-        animation: glow 2s ease-in-out infinite;
-    }
-
-    @keyframes glow {
-        0%, 100% {
-            box-shadow: 0 0 20px rgba(252, 182, 159, 0.5);
-        }
-        50% {
-            box-shadow: 0 0 30px rgba(252, 182, 159, 0.8);
-        }
-    }
-
-    .heart {
-        color: #e74c3c;
-        font-size: 2em;
-        display: inline-block;
-        animation: heartbeat 1.5s infinite;
-    }
-
-    @keyframes heartbeat {
-        0%, 100% {
-            transform: scale(1);
-        }
-        25% {
-            transform: scale(1.2);
-        }
-        50% {
-            transform: scale(1);
-        }
-    }
-
-    @media (max-width: 600px) {
-        h1 {
-            font-size: 2em;
-        }
-        .container {
-            padding: 30px 20px;
-        }
-        .intro-message, .final-message {
-            font-size: 1.1em;
-        }
+        color: white;
+        padding: 40px 20px;
+        font-size: 1.2em;
     }
 </style>
-
+```
 
 </head>
 <body>
-    <div class="container">
-        <!-- Intro Screen -->
-        <div class="intro-screen" id="introScreen">
-            <h1>Happy 44th Birthday, Aisha Kisembo! 🎉</h1>
-            <div>
-                <span class="balloon">🎈</span>
-                <span class="balloon" style="animation-delay: 0.5s;">🎂</span>
-                <span class="balloon" style="animation-delay: 1s;">🎈</span>
-            </div>
-            <div class="intro-message">
-                <p><strong>44 years young and absolutely fabulous!</strong></p>
-                <p>We have a special birthday quiz just for you!</p>
-                <p>Let's see how well you know your amazing children 😊</p>
-            </div>
-            <button class="start-btn" onclick="startQuiz()">Start the Quiz! 🎯</button>
+    <div class="intro-screen" id="introScreen">
+        <div class="intro-text">
+            🎂 It's someone special's birthday today... 🎂
         </div>
-
-
-    <!-- Quiz Screen -->
-    <div class="quiz-screen hidden" id="quizScreen">
-        <div class="progress" id="progress"></div>
-        <div class="question-container">
-            <div class="question" id="question"></div>
-            <div class="options" id="options"></div>
-            <div class="feedback hidden" id="feedback"></div>
-            <button class="next-btn hidden" id="nextBtn" onclick="nextQuestion()">Next Question →</button>
-        </div>
+        <button class="start-btn" onclick="startExperience()">Click to Begin ✨</button>
     </div>
 
-    <!-- Final Screen -->
-    <div class="final-screen hidden" id="finalScreen">
-        <h1>You did it, Mummy! 🎊</h1>
-        <div class="final-message">
-            You scored <strong><span id="score"></span></strong> out of 7!
-            <br><br>
-            You truly know your children so well! ❤
-        </div>
-        
-        <div class="special-reveal">
-            <div class="heart">💝</div>
-            <p>Special Birthday News!</p>
-            <p style="font-size: 1.2em; margin-top: 15px;">
-                Abdulsalaam will soon be bringing you a GRANDSON! 👶💙
-            </p>
-            <div class="heart">💝</div>
+```
+<div class="main-content" id="mainContent">
+    <div class="container">
+        <div class="header">
+            <h1>🌟 Happy Birthday, Nusurah! 🌟</h1>
+            <p>From your sister in faith, Sumie 💕</p>
         </div>
 
-        <div class="final-message">
-            Thank you for being the most incredible mother to 
-            <strong>Abdulsalaam, Hisham, Hashiibah, Abdulrazaq, Mushir, Mujib, and Ibra</strong>.
-            <br><br>
-            Your love, strength, and kindness inspire us every single day.
-            <br><br>
-            Here's to many more beautiful years ahead!
-            <br><br>
-            We love you so much! 💕
+        <div class="card message-card">
+            <p><strong>Happy Birthday, my dear Nusurah</strong></p>
+            <p>Today isn't just a celebration of your life…it is a reminder of how far Allah has carried you, protected you, and written blessings for you that even your heart doesn't know yet. Alhamdulillah another year is added, but always remember that every birthday is also a step closer to our final meeting with Allah so you praise Him, you thank Him, and you return your heart back to Him.</p>
+            <br>
+            <p>My Nusurah, may Allah make this new age a door of guidance, barakah, and mercy for you. May He forgive your past, bless your present, and beautify your future. May He make you among those whose hearts are always soft, grateful, and close to Him. You are a gift in my life, and I pray Allah preserves you upon goodness until the last breath.</p>
+            <br>
+            <p><strong>Happy Birthday, beloved Nusurah. 🤲💜</strong></p>
+        </div>
+
+        <div class="card memories-section">
+            <h2>Our Beautiful Memories 📸</h2>
+            <div class="photo-grid">
+                <div class="photo-item" onclick="reactToPhoto(1)">
+                    <img src="pic1.png" alt="Memory 1" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'>📷</div>'">
+                </div>
+                <div class="photo-item" onclick="reactToPhoto(2)">
+                    <img src="pic2.png" alt="Memory 2" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'>💝</div>'">
+                </div>
+                <div class="photo-item" onclick="reactToPhoto(3)">
+                    <img src="pic3.png" alt="Memory 3" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'>🌸</div>'">
+                </div>
+                <div class="photo-item" onclick="reactToPhoto(4)">
+                    <img src="pic4.png" alt="Memory 4" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'>✨</div>'">
+                </div>
+            </div>
+
+            <div class="funny-memory">
+                <strong>Remember when...</strong> We bought clothes AND paid for shoes preparing for our friend's nikkah... but we didn't even go! 😂 We were so ready, so prepared, and then... nothing! Classic us! But honestly, those outfits were too good to waste, right? 💃
+            </div>
+        </div>
+
+        <div class="card interactive-section">
+            <h2 style="color: #667eea; margin-bottom: 20px;">Special Birthday Wishes 🎁</h2>
+            <button class="wish-button" onclick="showWish(1)">Health & Happiness 💪</button>
+            <button class="wish-button" onclick="showWish(2)">Endless Blessings 🌙</button>
+            <button class="wish-button" onclick="showWish(3)">Dreams Come True ⭐</button>
+            <div id="wishDisplay" style="margin-top: 20px; font-size: 1.2em; color: #667eea; min-height: 60px;"></div>
+        </div>
+
+        <div class="card surprise-box" id="surpriseBox" onclick="revealSurprise()">
+            <h2>🎁 Click for a Special Surprise! 🎁</h2>
+            <div class="hidden-message" id="hiddenMessage">
+                <p style="font-size: 1.3em; margin-top: 20px;">
+                    🌟 You know what makes you special, Nusurah? You're the kind of friend who turns ordinary moments into precious memories. The kind who makes people feel seen, heard, and loved. May Allah always keep that beautiful light in you shining bright! 🌟
+                </p>
+            </div>
+        </div>
+
+        <div class="card" style="text-align: center; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+            <h2 style="color: #667eea;">More Reasons Why You're Amazing 💎</h2>
+            <div id="reasons" style="margin: 20px 0; font-size: 1.1em; line-height: 2;">
+                <p>✨ Your smile brightens everyone's day</p>
+                <p>💝 Your kindness touches hearts</p>
+                <p>🌙 Your faith inspires others</p>
+                <p>🌸 Your laughter is contagious</p>
+                <p>⭐ Your friendship is a treasure</p>
+            </div>
+            <button class="wish-button" onclick="addReason()">Add Another Reason! 💕</button>
+        </div>
+
+        <div class="footer">
+            <p>May this year bring you closer to all your dreams and to Allah's infinite mercy 🤲</p>
+            <p style="margin-top: 20px; font-style: italic;">With love and duas always,</p>
+            <p style="font-size: 1.5em; margin-top: 10px;">💜 Sumie 💜</p>
         </div>
     </div>
 </div>
 
 <script>
-    const questions = [
-        {
-            question: "Who is the best chef among your children? 👨‍🍳",
-            options: ["Abdulsalaam", "Mujib", "Hisham", "Mushir"],
-            correct: 1,
-            feedback: "Yes! Mujib is the master chef of the family! 🍳✨"
-        },
-        {
-            question: "Who is the silent sinner? 😁",
-            options: ["Mushir", "Hisham", "Abdulrazaq", "Ibra"],
-            correct: 1,
-            feedback: "Hahaha! Hisham is the silent sinner according to Hashiibah! 😂"
-        },
-        {
-            question: "Who is Mummy's favorite (Jayden)? 💙",
-            options: ["Mujib", "Mushir", "Ibra", "Abdulsalaam"],
-            correct: 2,
-            feedback: "Of course! Ibra is Mummy's favorite - he's the last born! 🥰"
-        },
-        {
-            question: "Who is the funniest in the family? 😄",
-            options: ["Mushir", "Hisham", "Abdulrazaq", "Mujib"],
-            correct: 0,
-            feedback: "Absolutely right! Mushir keeps everyone laughing! 🤣"
-        },
-        {
-            question: "Who is Daddy's bestie? 👫",
-            options: ["Abdulsalaam", "Hashiibah", "Hisham", "Mujib"],
-            correct: 1,
-            feedback: "Yes! Hashiibah is Daddy's bestie! 💕"
-        },
-        {
-            question: "Who will be the family doctor? 👨‍⚕",
-            options: ["Abdulrazaq", "Hisham", "Mushir", "Abdulsalaam"],
-            correct: 0,
-            feedback: "Correct! Dr. Abdulrazaq coming soon! 🩺"
-        },
-        {
-            question: "Who is likely to bring you a grandson soon? 👶",
-            options: ["Abdulsalaam", "Hisham", "Mushir", "Mujib"],
-            correct: 0,
-            feedback: "Yes! Abdulsalaam will soon make you a grandmother! 💙👶"
+    function startExperience() {
+        document.getElementById('introScreen').classList.add('hidden');
+        setTimeout(() => {
+            document.getElementById('mainContent').classList.add('visible');
+            createConfetti();
+        }, 500);
+    }
+
+    function createConfetti() {
+        const colors = ['#667eea', '#764ba2', '#f093fb', '#f5576c', '#ffecd2', '#fcb69f'];
+        for (let i = 0; i < 50; i++) {
+            setTimeout(() => {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 3000);
+            }, i * 50);
         }
+    }
+
+    function reactToPhoto(num) {
+        createHeart(event.clientX, event.clientY);
+        const messages = [
+            "What a beautiful memory! 💕",
+            "This moment was perfect! ✨",
+            "We look so happy here! 🌟",
+            "Cherishing this forever! 💝"
+        ];
+        alert(messages[num - 1]);
+    }
+
+    function createHeart(x, y) {
+        const heart = document.createElement('div');
+        heart.className = 'floating-hearts';
+        heart.textContent = '💕';
+        heart.style.left = x + 'px';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 4000);
+    }
+
+    function showWish(num) {
+        const wishes = [
+            "May Allah grant you health that never fails, happiness that never fades, and a heart that's always content! 💪✨",
+            "May every day bring you closer to Jannah, and may your du'as be answered in ways more beautiful than you imagined! 🌙🤲",
+            "May all your dreams unfold like flowers in spring, and may success follow you in this life and the next! ⭐🌸"
+        ];
+        document.getElementById('wishDisplay').innerHTML = wishes[num - 1];
+        createConfetti();
+    }
+
+    function revealSurprise() {
+        const hiddenMsg = document.getElementById('hiddenMessage');
+        if (hiddenMsg.style.display === 'none' || !hiddenMsg.style.display) {
+            hiddenMsg.style.display = 'block';
+            createConfetti();
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => createHeart(Math.random() * window.innerWidth, window.innerHeight), i * 200);
+            }
+        }
+    }
+
+    const extraReasons = [
+        "🎨 Your creativity inspires everyone",
+        "💎 You make the world more beautiful",
+        "🌺 Your patience is admirable",
+        "🦋 You bring peace wherever you go",
+        "🌈 Your positivity is infectious",
+        "💫 You're a blessing in disguise",
+        "🎵 Your presence makes life sweeter"
     ];
 
-    let currentQuestion = 0;
-    let score = 0;
-    let answered = false;
+    let reasonIndex = 0;
 
-    function startQuiz() {
-        document.getElementById('introScreen').classList.add('hidden');
-        document.getElementById('quizScreen').classList.remove('hidden');
-        showQuestion();
-    }
-
-    function showQuestion() {
-        answered = false;
-        const q = questions[currentQuestion];
-        document.getElementById('progress').textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
-        document.getElementById('question').textContent = q.question;
-        document.getElementById('feedback').classList.add('hidden');
-        document.getElementById('nextBtn').classList.add('hidden');
-
-        const optionsDiv = document.getElementById('options');
-        optionsDiv.innerHTML = '';
-        
-        q.options.forEach((option, index) => {
-            const btn = document.createElement('button');
-            btn.className = 'option-btn';
-            btn.textContent = option;
-            btn.onclick = () => checkAnswer(index);
-            optionsDiv.appendChild(btn);
-        });
-    }
-
-    function checkAnswer(selected) {
-        if (answered) return;
-        answered = true;
-
-        const q = questions[currentQuestion];
-        const buttons = document.querySelectorAll('.option-btn');
-        const feedbackDiv = document.getElementById('feedback');
-
-        buttons.forEach((btn, index) => {
-            btn.disabled = true;
-            if (index === q.correct) {
-                btn.classList.add('correct');
-            } else if (index === selected) {
-                btn.classList.add('wrong');
-            }
-        });
-
-        if (selected === q.correct) {
-            score++;
-            feedbackDiv.textContent = q.feedback;
-            feedbackDiv.className = 'feedback correct';
+    function addReason() {
+        if (reasonIndex < extraReasons.length) {
+            const reasonsDiv = document.getElementById('reasons');
+            const newReason = document.createElement('p');
+            newReason.textContent = extraReasons[reasonIndex];
+            newReason.style.animation = 'fadeInUp 0.5s';
+            reasonsDiv.appendChild(newReason);
+            reasonIndex++;
+            createHeart(Math.random() * window.innerWidth, window.innerHeight);
         } else {
-            feedbackDiv.textContent = `Oops! The correct answer is ${q.options[q.correct]}. ${q.feedback}`;
-            feedbackDiv.className = 'feedback wrong';
-        }
-
-        feedbackDiv.classList.remove('hidden');
-        document.getElementById('nextBtn').classList.remove('hidden');
-    }
-
-    function nextQuestion() {
-        currentQuestion++;
-        if (currentQuestion < questions.length) {
-            showQuestion();
-        } else {
-            showFinal();
+            alert("You've unlocked all the reasons! But really, there are countless more! 💕");
         }
     }
 
-    function showFinal() {
-        document.getElementById('quizScreen').classList.add('hidden');
-        document.getElementById('finalScreen').classList.remove('hidden');
-        document.getElementById('score').textContent = score;
-    }
+    // Auto-create floating hearts periodically
+    setInterval(() => {
+        if (document.getElementById('mainContent').classList.contains('visible')) {
+            createHeart(Math.random() * window.innerWidth, window.innerHeight);
+        }
+    }, 3000);
 </script>
-
+```
 
 </body>
 </html>
